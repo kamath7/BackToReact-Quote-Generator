@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { generateRandomQuote } from './utils/quotes'
+import 'bootstrap/dist/css/bootstrap.css';
+import { Button, Card } from 'react-bootstrap';
+
 
 function App() {
 
@@ -15,14 +18,21 @@ function App() {
   }
 
   return (
-    <div>
-      <h2>Accamma Quote Generator</h2>
+    <div className="text-center" style={{paddingTop: "10rem"}}>
 
-      <h3> Quote of the Day </h3>
+      <h2 >Accamma Quote Generator</h2><br />
 
-      <p>{quote}</p>
-
-      <button onClick={newQuote}>Give me a new one!</button>
+      <Card className="text-center">
+        <Card.Header>Quote of the Day</Card.Header>
+        <Card.Body>
+        <blockquote className="blockquote mb-0">
+          <Card.Text>
+          {"'"}{quote}{"'"}
+          </Card.Text>
+          <Button onClick={newQuote} variant="primary">Another One!</Button>
+          </blockquote>
+        </Card.Body>
+      </Card>
     </div>
   );
 }
