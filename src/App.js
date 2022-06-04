@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import { generateRandomQuote } from './utils/quotes'
 
 function App() {
+
+  const [quote, setQuote] = useState('');
+
+  useEffect(() => {
+    setQuote("Eyy go yaa!")
+  }, [])
+
+  const newQuote = (e) => {
+
+    setQuote(generateRandomQuote)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h2>Accamma Quote Generator</h2>
+
+      <h3> Quote of the Day </h3>
+
+      <p>{quote}</p>
+
+      <button onClick={newQuote}>Give me a new one!</button>
     </div>
   );
 }
